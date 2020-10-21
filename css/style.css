@@ -29,6 +29,19 @@ p{
     font-size: 2rem;
 }
 
+.card{
+    background-color: rgba(40, 70, 100, 0.4) !important;
+    height: 100%;
+}
+
+.card h1{
+    font-size: 3rem;
+}
+
+.card p{
+    font-size: 1.5rem;
+}
+
 @media only screen and (max-width: 768px){
     :root{
         font-size: 10px;
