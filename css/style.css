@@ -35,26 +35,7 @@ p{
     }
     .navbar{
         height: unset;
+        min-height: 7vh;
         background-color: rgba(40, 70, 100, 0.9) !important;
     }
-}
-
-/* width */
-::-webkit-scrollbar {
-  width: 10px;
-}
-
-/* Track */
-::-webkit-scrollbar-track {
-  background: #f1f1f1; 
-}
- 
-/* Handle */
-::-webkit-scrollbar-thumb {
-  background: #888; 
-}
-
-/* Handle on hover */
-::-webkit-scrollbar-thumb:hover {
-  background: #555; 
 }
