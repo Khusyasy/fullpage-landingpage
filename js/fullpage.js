@@ -26,7 +26,6 @@
             slength = 0;
         } else if (scdir === 'num') {
             slength = -(step * scrto);
-            console.log(slength);
         }
         if (slength > 0) {
             slength = 0;
