@@ -2,7 +2,7 @@
     "use strict";
     /*[pan and fullpage CSS scrolls]*/
     var pnls = document.querySelectorAll('.fullpage-panel').length - 1,
-        scdir, hold = false;
+        scdir, hold = false, scrto = 0;
 
     function _scrollY(obj) {
         var slength, plength, pan, step = 100,
@@ -24,6 +24,9 @@
             slength = slength + step;
         } else if (scdir === 'top') {
             slength = 0;
+        } else if (scdir === 'num') {
+            slength = -(step * scrto);
+            console.log(slength);
         }
         if (slength > 0) {
             slength = 0;
@@ -33,7 +36,7 @@
         }
         if (hold === false) {
             hold = true;
-            console.log(Math.abs(slength), pnls * step);
+            set_page(Math.abs(slength) / step);
             pan.style.transform = 'translateY(' + slength + 'vh)';
             setTimeout(function () {
                 hold = false;
@@ -48,7 +51,7 @@
             sY,
             dX,
             dY,
-            threshold = 50,
+            threshold = 100,
             /*[min distance traveled to be considered swipe]*/
             slack = 10000,
             /*[max distance allowed at the same time in perpendicular direction]*/
@@ -99,6 +102,8 @@
                 swdir = (dX < 0) ? 'left' : 'right';
             } else*/ if (Math.abs(dY) >= threshold && Math.abs(dX) <= slack) {
                 swdir = (dY < 0) ? 'up' : 'down';
+            } else {
+                swdir = 'none';
             }
             if (obj.id === 'fullpage') {
                 if (swdir === 'up') {
@@ -108,11 +113,20 @@
                     scdir = swdir;
                     _scrollY(obj);
 
+                } else if (swdir === 'none') {
+                    scdir = swdir;
+                    _scrollY(obj);
                 }
                 e.stopPropagation();
             }
             //}
         }, false);
+    }
+    function set_page(page_num) {
+        for (var i = 0; i < paging.length; i++) {
+            paging[i].classList.remove('active');
+        }
+        paging[page_num].classList.add('active');
     }
     /*[assignments]*/
     var fullpage = document.getElementById('fullpage');
@@ -128,6 +142,20 @@
     });
     fullpage.addEventListener('wheel', _scrollY);
     _swipe(fullpage);
+    for (var i = 1; i <= pnls + 1; i++) {
+        var li = document.createElement('li');
+        li.textContent = i;
+        li.addEventListener('click', function (e) {
+            e.stopPropagation();
+            e.stopImmediatePropagation();
+            scrto = this.textContent - 1;
+            scdir = 'num';
+            _scrollY(fullpage);
+        });
+        document.getElementById('paging-list').appendChild(li)
+    }
+    var paging = document.getElementById('paging-list').children;
+    set_page(0);
     var tops = document.querySelectorAll('.top');
     for (var i = 0; i < tops.length; i++) {
         tops[i].addEventListener('click', function () {
