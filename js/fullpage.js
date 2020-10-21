@@ -17,21 +17,29 @@
         }
         plength = plength || parseInt(pan.offsetHeight / vmin);
         slength = parseInt(pan.style.transform.replace('translateY(', ''));
-        if (scdir === 'up' && Math.abs(slength) < (plength - plength / pnls)) {
+        slength = Math.round(slength / 100) * 100;
+        if (scdir === 'up' && Math.abs(slength) < (plength - (plength / pnls))) {
             slength = slength - step;
         } else if (scdir === 'down' && slength < 0) {
             slength = slength + step;
         } else if (scdir === 'top') {
             slength = 0;
         }
+        if (slength > 0) {
+            slength = 0;
+        }
+        if (Math.abs(slength) > pnls * step) {
+            slength = -(pnls * step);
+        }
         if (hold === false) {
             hold = true;
+            console.log(Math.abs(slength), pnls * step);
             pan.style.transform = 'translateY(' + slength + 'vh)';
             setTimeout(function () {
                 hold = false;
-            }, 1000);
+            }, 750);
         }
-        console.log(scdir + ':' + slength + ':' + plength + ':' + (plength - plength / pnls));
+        //console.log(scdir + ':' + slength + ':' + plength + ':' + (plength - plength / pnls));
     }
     /*[swipe detection on touchscreen devices]*/
     function _swipe(obj) {
@@ -40,50 +48,70 @@
             sY,
             dX,
             dY,
-            threshold = 25,
+            threshold = 50,
             /*[min distance traveled to be considered swipe]*/
-            slack = 200,
+            slack = 10000,
             /*[max distance allowed at the same time in perpendicular direction]*/
             alT = 500,
             /*[max time allowed to travel that distance]*/
             elT, /*[elapsed time]*/
-            stT; /*[start time]*/
+            stT, /*[start time]*/
+            sPY = 0, /* start pan y */
+            vh = window.innerHeight / 100;
         obj.addEventListener('touchstart', function (e) {
             var tchs = e.changedTouches[0];
             swdir = 'none';
             sX = tchs.pageX;
             sY = tchs.pageY;
-            stT = new Date().getTime();
+            if (obj.id === 'fullpage') {
+                var pan = obj;
+                sPY = parseInt(pan.style.transform.replace('translateY(', '')) * vh;
+            }
+            //stT = new Date().getTime();
             //e.preventDefault();
         }, false);
 
         obj.addEventListener('touchmove', function (e) {
+            if (hold === false) {
+                var tchs = e.changedTouches[0], vh = window.innerHeight / 100;
+                dX = tchs.pageX - sX;
+                dY = tchs.pageY - sY;
+                if (obj.id === 'fullpage') {
+                    var pan = obj;
+                    pan.style.transform = 'translateY(' + ((sPY + dY) / vh) + 'vh)';
+                    pan.style.transition = 'none';
+                }
+            }
             e.preventDefault(); /*[prevent scrolling when inside DIV]*/
         }, false);
 
         obj.addEventListener('touchend', function (e) {
+            if (obj.id === 'fullpage') {
+                var pan = obj;
+                pan.style.transition = '700ms cubic-bezier(.60,0,.30,1)';
+            }
             var tchs = e.changedTouches[0];
             dX = tchs.pageX - sX;
             dY = tchs.pageY - sY;
             elT = new Date().getTime() - stT;
-            if (elT <= alT) {
-                if (Math.abs(dX) >= threshold && Math.abs(dY) <= slack) {
-                    swdir = (dX < 0) ? 'left' : 'right';
-                } else if (Math.abs(dY) >= threshold && Math.abs(dX) <= slack) {
-                    swdir = (dY < 0) ? 'up' : 'down';
-                }
-                if (obj.id === 'fullpage') {
-                    if (swdir === 'up') {
-                        scdir = swdir;
-                        _scrollY(obj);
-                    } else if (swdir === 'down' && obj.style.transform !== 'translateY(0)') {
-                        scdir = swdir;
-                        _scrollY(obj);
-
-                    }
-                    e.stopPropagation();
-                }
+            //if (elT <= alT) {
+            /*if (Math.abs(dX) >= threshold && Math.abs(dY) <= slack) {
+                swdir = (dX < 0) ? 'left' : 'right';
+            } else*/ if (Math.abs(dY) >= threshold && Math.abs(dX) <= slack) {
+                swdir = (dY < 0) ? 'up' : 'down';
             }
+            if (obj.id === 'fullpage') {
+                if (swdir === 'up') {
+                    scdir = swdir;
+                    _scrollY(obj);
+                } else if (swdir === 'down') {
+                    scdir = swdir;
+                    _scrollY(obj);
+
+                }
+                e.stopPropagation();
+            }
+            //}
         }, false);
     }
     /*[assignments]*/
