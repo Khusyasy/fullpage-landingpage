@@ -51,10 +51,12 @@ body {
     opacity: 0.7;
 }
 
-.paging li:hover{
-    padding: -.4rem;
-    font-size: 1.2rem;
-    opacity: 1;
+@media(hover: hover) and (pointer: fine) {
+    .paging li:hover{
+        padding: -.4rem;
+        font-size: 1.2rem;
+        opacity: 1;
+    }
 }
 
 .fullpage-panel {
