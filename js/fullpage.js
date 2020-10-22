@@ -41,7 +41,6 @@
                 hold = false;
             }, 750);
         }
-        //console.log(scdir + ':' + slength + ':' + plength + ':' + (plength - plength / pnls));
     }
     /*[swipe detection on touchscreen devices]*/
     function _swipe(obj) {
@@ -50,24 +49,21 @@
             sY,
             dX,
             dY,
-            threshold = 100,
-            /*[min distance traveled to be considered swipe]*/
-            slack = 10000,
-            /*[max distance allowed at the same time in perpendicular direction]*/
-            alT = 500,
-            /*[max time allowed to travel that distance]*/
-            elT, /*[elapsed time]*/
-            stT, /*[start time]*/
-            sPY = 0, /* start pan y */
-            vh = window.innerHeight / 100;
+            threshold = 100,    /*[min distance traveled to be considered swipe]*/
+            slack = 1000,       /*[max distance allowed at the same time in perpendicular direction]*/
+            alT = 500,          /*[max time allowed to travel that distance]*/
+            elT,                /*[elapsed time]*/
+            stT,                /*[start time]*/
+            sPY = 0,            /*[start panel y]*/
+            vh = window.innerHeight / 100; /*[vh for converting]*/
         obj.addEventListener('touchstart', function (e) {
             var tchs = e.changedTouches[0];
             swdir = 'none';
             sX = tchs.pageX;
             sY = tchs.pageY;
             if (obj.id === 'fullpage') {
-                var pan = obj;
-                sPY = parseInt(pan.style.transform.replace('translateY(', '')) * vh;
+                //get the panel y at start
+                sPY = parseInt(obj.style.transform.replace('translateY(', '')) * vh;
             }
             //stT = new Date().getTime();
             //e.preventDefault();
@@ -75,13 +71,12 @@
 
         obj.addEventListener('touchmove', function (e) {
             if (hold === false) {
-                var tchs = e.changedTouches[0], vh = window.innerHeight / 100;
+                var tchs = e.changedTouches[0];
                 dX = tchs.pageX - sX;
                 dY = tchs.pageY - sY;
                 if (obj.id === 'fullpage') {
-                    var pan = obj;
-                    pan.style.transform = 'translateY(' + ((sPY + dY) / vh) + 'vh)';
-                    pan.style.transition = 'none';
+                    obj.style.transform = 'translateY(' + ((sPY + dY) / vh) + 'vh)';
+                    obj.style.transition = 'none';
                 }
             }
             e.preventDefault(); /*[prevent scrolling when inside DIV]*/
@@ -89,17 +84,13 @@
 
         obj.addEventListener('touchend', function (e) {
             if (obj.id === 'fullpage') {
-                var pan = obj;
-                pan.style.transition = '700ms cubic-bezier(.60,0,.30,1)';
+                obj.style.transition = '700ms cubic-bezier(.60,0,.30,1)';
             }
             var tchs = e.changedTouches[0];
             dX = tchs.pageX - sX;
             dY = tchs.pageY - sY;
             elT = new Date().getTime() - stT;
-            //if (elT <= alT) {
-            /*if (Math.abs(dX) >= threshold && Math.abs(dY) <= slack) {
-                swdir = (dX < 0) ? 'left' : 'right';
-            } else*/ if (Math.abs(dY) >= threshold && Math.abs(dX) <= slack) {
+            if (Math.abs(dY) >= threshold && Math.abs(dX) <= slack) {
                 swdir = (dY < 0) ? 'up' : 'down';
             } else {
                 swdir = 'none';
@@ -118,7 +109,6 @@
                 }
                 e.stopPropagation();
             }
-            //}
         }, false);
     }
     function set_page(page_num) {
@@ -141,17 +131,17 @@
     });
     fullpage.addEventListener('wheel', _scrollY);
     _swipe(fullpage);
+    //create paging li
     for (var i = 1; i <= pnls + 1; i++) {
         var li = document.createElement('li');
         li.textContent = i;
+        li.id = 'paging-item-' + i;
         li.addEventListener('click', function (e) {
-            e.stopPropagation();
-            e.stopImmediatePropagation();
-            scrto = this.textContent - 1;
+            scrto = this.id.replace('paging-item-', '') - 1;
             scdir = 'num';
             _scrollY(fullpage);
         });
-        document.getElementById('paging-list').appendChild(li)
+        document.getElementById('paging-list').appendChild(li);
     }
     var paging = document.getElementById('paging-list').children;
     set_page(0);
