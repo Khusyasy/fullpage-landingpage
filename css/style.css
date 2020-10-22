@@ -3,7 +3,7 @@
     margin: 0;
 }
 html{
-    font-size: 20px;
+    font-size: 1.5vh;
 }
 
 body{
@@ -15,6 +15,7 @@ body{
     height: 7vh;
     width: 100%;
     background-color: rgba(40, 70, 100, 0.4) !important;
+    font-size: 1rem;
 }
 
 div{
@@ -22,7 +23,7 @@ div{
 }
 
 h1{
-    font-size: 4rem;
+    font-size: 4.5rem;
 }
 
 p{
@@ -31,7 +32,13 @@ p{
 
 .card{
     background-color: rgba(40, 70, 100, 0.4) !important;
-    height: 100%;
+    min-height: 50vh;
+    max-height: 80vh;
+}
+
+.card img{
+    height: 25vh;
+    overflow: hidden;
 }
 
 .card h1{
@@ -44,11 +51,28 @@ p{
 
 @media only screen and (max-width: 768px){
     :root{
-        font-size: 10px;
+        font-size: 1vh;
     }
     .navbar{
         height: unset;
         min-height: 7vh;
         background-color: rgba(40, 70, 100, 0.9) !important;
+        font-size: 2rem;
+    }
+    .card{
+        min-height: 20vh;
+        max-height: 40vh;
+    }
+
+    .card img{
+        height: 13vh;
+    }
+
+    .card h1{
+        font-size: 2rem;
+    }
+
+    .card p{
+        font-size: 1rem;
     }
 }

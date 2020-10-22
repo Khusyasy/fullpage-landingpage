@@ -59,10 +59,26 @@ body {
     }
 }
 
+@media only screen and (max-width: 768px){
+    .paging li{
+        font-size: 1.6rem;
+    }
+
+    .paging li.active{
+        font-size: 2.4rem;
+    }
+
+    @media(hover: hover) and (pointer: fine) {
+        .paging li:hover{
+            font-size: 2.4rem;
+        }
+    }
+}
+
 .fullpage-panel {
 	height: 100vh;
 	overflow: hidden;
-    padding: 5rem;
+    padding: 8rem;
     color: rgb(255, 255, 255);
     text-shadow: 0.1rem 0.1rem rgb(0, 0, 0);
     cursor: default;
