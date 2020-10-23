@@ -3,11 +3,11 @@
     margin: 0;
 }
 html{
-    font-size: 1.5vh;
+    font-size: 2vh;
 }
 
 body{
-    font-family: 'Oswald', sans-serif;
+    font-family: 'Raleway', sans-serif;
 }
 
 .navbar{
@@ -23,7 +23,7 @@ div{
 }
 
 h1{
-    font-size: 4.5rem;
+    font-size: 5rem;
 }
 
 p{
@@ -32,8 +32,8 @@ p{
 
 .card{
     background-color: rgba(40, 70, 100, 0.4) !important;
-    min-height: 50vh;
-    max-height: 80vh;
+    min-height: 25rem;
+    max-height: 40rem;
 }
 
 .card img{
@@ -49,9 +49,21 @@ p{
     font-size: 1.5rem;
 }
 
+.text-title{
+    font-family: 'Oswald', sans-serif;
+}
+
+.text-content{
+    font-family: 'Raleway', sans-serif;
+}
+
+form{
+    font-size: 1.5rem;
+}
+
 @media only screen and (max-width: 768px){
     :root{
-        font-size: 1vh;
+        font-size: 1.4vh;
     }
     .navbar{
         height: unset;
@@ -65,14 +77,10 @@ p{
     }
 
     .card img{
-        height: 13vh;
+        min-height: 20vh;
     }
 
     .card h1{
         font-size: 2rem;
-    }
-
-    .card p{
-        font-size: 1rem;
     }
 }
