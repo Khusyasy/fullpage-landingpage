@@ -1,0 +1,156 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>The Adventures</title>
+
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css"
+        integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous">
+
+    <link rel="stylesheet" href="./css/style.css">
+    <link rel="stylesheet" href="./css/fullpage.css">
+
+    <link href="https://fonts.googleapis.com/css2?family=Oswald&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Raleway:wght@500&display=swap" rel="stylesheet">
+</head>
+
+<body>
+    <nav class="navbar navbar-expand-lg navbar-light bg-light sticky-top">
+        <a class="navbar-brand" href="#">
+            The Adventures
+        </a>
+        <!-- <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
+            aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarSupportedContent">
+            <ul class="navbar-nav mr-auto">
+                <li class="nav-item">
+                    <a class="nav-link" onclick="scr_to(0)">About</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="#slide-2">Program</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="#slide-3">Contact Us</a>
+                </li>
+            </ul> -->
+        </div>
+    </nav>
+
+    <div class="paging">
+        <ul id="paging-list">
+        </ul>
+    </div>
+
+    <div class="fullpage container-fluid" id="fullpage">
+        <div class="fullpage-panel row-main row" id="slide-1">
+            <div class="col-12 text-center my-auto">
+                <h1 class="text-title">Are you an adventurer?</h1>
+                <br>
+                <p>Adventures is waiting for you out there, why don't you come out?</p>
+                <p>even if you're not an adventurer, let's go!</p>
+            </div>
+        </div>
+        <div class="fullpage-panel row-main row" id="slide-2">
+            <div class="row py-0">
+                <div class="col-12 col-md-5 my-auto order-1 order-md-1">
+                    <img src="./images/product/pexels-andrew-neel-3178938.jpg" alt="product image">
+                </div>
+                <div class="col-12 col-md-7 text-center text-md-left my-auto order-2 order-md-2">
+                    <h1 class="text-title">Preparing for adventures</h1>
+                    <p>Take a look at our program to get some of the best services that we own, that can make your
+                        adventure life easier and more fun!.</p>
+                    <p>Whether you're a skilled or just having some good time, we have all of the kinds you need.</p>
+                </div>
+            </div>
+        </div>
+        <div class="fullpage-panel row-main row" id="slide-3">
+            <div class="row py-0">
+                <div class="col-12 col-md-7 text-center text-md-right my-auto order-2 order-md-1">
+                    <h1 class="text-title">Let's Go!</h1>
+                    <p>After all of those preparing... are you ready yet?</p>
+                    <p>Let's go to the world of unknown that you soon will discover</p>
+                </div>
+                <div class="col-12 col-md-5 my-auto order-1 order-md-2">
+                    <img src="./images/product/pexels-luis-quintero-3731256.jpg" alt="product image">
+                </div>
+            </div>
+        </div>
+        <div class="fullpage-panel row-main row" id="slide-4">
+            <div class="col-12 col-md-5 text-center text-md-right my-md-auto mb-2">
+                <h1 class="text-title">Register Now</h1>
+                <p>We will get the kind of program that you will need ASAP.</p>
+            </div>
+            <div class="col-12 col-md-7 my-md-auto mt-2">
+                <form method="POST" action="#">
+                    <div class="form-group">
+                        <label for="email">Email</label>
+                        <input class="form-control" type="email" name="email" id="email">
+                    </div>
+                    <div class="form-group">
+                        <label for="name">Name</label>
+                        <input class="form-control" type="text" name="name" id="name">
+                    </div>
+                    <div class="form-group">
+                        <label for="phone">Phone</label>
+                        <input class="form-control" type="phone" name="phone" id="phone">
+                    </div>
+                    <div class="form-group">
+                        <input class="form-control btn" type="submit" name="submit" id="submit">
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+    <!-- <footer>
+        <div class="container-fluid">
+            <div class="row text-center pt-5 pt-md-3">
+                <div class="col-12 col-md-6">
+                    <ul class="list-unstyled">
+                        <li>
+                            <span class="font-weight-bold">The Adventures</span>
+                        </li>
+                        <li>
+                            <a href="#slide-1">About</a>
+                        </li>
+                        <li>
+                            <a href="#slide-2">Program</a>
+                        </li>
+                        <li>
+                            <a href="#slide-3">Contact Us</a>
+                        </li>
+                    </ul>
+                </div>
+                <div class="col-12 col-md-6">
+                    <ul class="list-unstyled">
+                        <li>
+                            <span class="font-weight-bold">Social Media</span>
+                        </li>
+                        <li>
+                            <a href="">Instagram</a>
+                        </li>
+                        <li>
+                            <a href="">Email</a>
+                        </li>
+                        <li>
+                            <a href="">Facebook</a>
+                        </li>
+                    </ul>
+                </div>
+                <div class="col-12 col-md-12">
+                    Made by Khusyasy
+                </div>
+            </div>
+        </div>
+    </footer> -->
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+    <script src="./js/fullpage.js"></script>
+</body>
+
+</html>
