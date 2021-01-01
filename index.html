@@ -4,138 +4,88 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Test</title>
+    <title>The Adventures</title>
+
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css"
         integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous">
+
+    <link rel="stylesheet" href="./css/style.css">
+    <link rel="stylesheet" href="./css/fullpage.css">
+
     <link href="https://fonts.googleapis.com/css2?family=Oswald&display=swap" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css2?family=Raleway:wght@500&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="css/style.css">
-    <link rel="stylesheet" href="css/fullpage.css">
 </head>
 
 <body>
-    <nav class="navbar navbar-expand-lg navbar-dark bg-transparent sticky-top">
+    <nav class="navbar navbar-expand-lg navbar-light bg-light sticky-top">
         <a class="navbar-brand" href="#">
-            BRAND
+            The Adventures
         </a>
-        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
+        <!-- <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
             aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
             <span class="navbar-toggler-icon"></span>
         </button>
         <div class="collapse navbar-collapse" id="navbarSupportedContent">
             <ul class="navbar-nav mr-auto">
-                <li class="nav-item active">
-                    <a class="nav-link" href="#">Home</a>
+                <li class="nav-item">
+                    <a class="nav-link" onclick="scr_to(0)">About</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="#">Shop</a>
+                    <a class="nav-link" href="#slide-2">Program</a>
                 </li>
-                <li class="nav-item dropdown">
-                    <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button"
-                        data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                        Category
-                    </a>
-                    <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-                        <a class="dropdown-item" href="#">First</a>
-                        <div class="dropdown-divider"></div>
-                        <a class="dropdown-item" href="#">Play</a>
-                        <a class="dropdown-item" href="#">Game</a>
-                    </div>
+                <li class="nav-item">
+                    <a class="nav-link" href="#slide-3">Contact Us</a>
                 </li>
-            </ul>
+            </ul> -->
         </div>
     </nav>
 
-    <div class="paging text-light">
+    <div class="paging">
         <ul id="paging-list">
         </ul>
     </div>
 
     <div class="fullpage container-fluid" id="fullpage">
-        <div class="fullpage-panel row">
+        <div class="fullpage-panel row-main row" id="slide-1">
             <div class="col-12 text-center my-auto">
-                <h1 class="text-title">HELLLOOO YOUY</h1>
+                <h1 class="text-title">Are you an adventurer?</h1>
                 <br>
-                <p>At per velit hendrerit, eam ad tota discere, alia copiosae partiendo vis ei. Quem sanctus blandit et
-                    mel, ad cum modo
-                    porro perpetua. Eam ex purto veritus erroribus, sed minim efficiendi dissentiet ei? Te ferri
-                    signiferumque his, te
-                    tollit feugiat persequeris has, ea pri putent periculis. Scaevola complectitur te nam, ferri
-                    scriptorem at sit, audire
-                    aperiam fabulas ut nec.</p>
+                <p>Adventures is waiting for you out there, why don't you come out?</p>
+                <p>even if you're not an adventurer, let's go!</p>
             </div>
         </div>
-        <div class="fullpage-panel row">
-            <div class="col-12 col-md-4 my-auto">
-                <div class="card bg-dark">
-                    <img class="card-img" src="images/bg/bg1.jpg" alt="Card image cap">
-                    <div class="d-flex d-sm-none flex-column card-img-overlay">
-                        <h1 class="card-title text-title">CONTENT TITLE</h1>
-                        <p class=" card-text">At per velit hendrerit, eam ad tota discere, alia copiosae partiendo vis
-                            ei.
-                            Quem sanctus blandit et
-                            mel, ad cum modo
-                            porro perpetua.</p>
-                        <a href="#" class="btn btn-primary">Go somewhere</a>
-                    </div>
-                    <div class="d-none d-sm-flex flex-column card-body">
-                        <h1 class="card-title text-title">CONTENT TITLE</h1>
-                        <p class=" card-text">At per velit hendrerit, eam ad tota discere, alia copiosae partiendo vis
-                            ei.
-                            Quem sanctus blandit et
-                            mel, ad cum modo
-                            porro perpetua.</p>
-                        <a href="#" class="btn btn-primary">Go somewhere</a>
-                    </div>
+        <div class="fullpage-panel row-main row" id="slide-2">
+            <div class="row py-0">
+                <div class="col-12 col-md-5 my-auto order-1 order-md-1">
+                    <img src="./images/product/pexels-andrew-neel-3178938.jpg" alt="product image">
                 </div>
-            </div>
-            <div class="col-12 col-md-4 my-auto">
-                <div class="card bg-dark">
-                    <img class="card-img" src="images/bg/bg2.jpg" alt="Card image cap">
-                    <div class="d-flex d-sm-none flex-column card-img-overlay">
-                        <h1 class="card-title text-title">CONTENT TITLE</h1>
-                        <p class="card-text">Vitae eligendi no vix, audiam aperiam maiorum eu vix. Sale feugait invenire
-                            cum ad, vis id fabulas facilisi, ad legere
-                            elaboraret per</p>
-                        <a href="#" class="btn btn-success">Go somewhere</a>
-                    </div>
-                    <div class="d-none d-sm-flex flex-column card-body">
-                        <h1 class="card-title text-title">CONTENT TITLE</h1>
-                        <p class="card-text">Vitae eligendi no vix, audiam aperiam maiorum eu vix. Sale feugait invenire
-                            cum ad, vis id fabulas facilisi, ad legere
-                            elaboraret per</p>
-                        <a href="#" class="btn btn-success">Go somewhere</a>
-                    </div>
-                </div>
-            </div>
-            <div class="col-12 col-md-4 my-auto">
-                <div class="card bg-dark">
-                    <img class="card-img" src="images/bg/bg3.jpg" alt="Card image cap">
-                    <div class="d-flex d-sm-none flex-column card-img-overlay">
-                        <h1 class="card-title text-title">CONTENT TITLE</h1>
-                        <p class="card-text">Nec vero consequat ut, et pro natum mollis saperet. Et dissentias
-                            definitionem mea, eum ad rebum detracto definitiones.</p>
-                        <a href="#" class="btn btn-warning text-light">Go somewhere</a>
-                    </div>
-                    <div class="d-none d-sm-flex flex-column card-body">
-                        <h1 class="card-title text-title">CONTENT TITLE</h1>
-                        <p class="card-text">Nec vero consequat ut, et pro natum mollis saperet. Et dissentias
-                            definitionem mea, eum ad rebum detracto definitiones.</p>
-                        <a href="#" class="btn btn-warning text-light">Go somewhere</a>
-                    </div>
+                <div class="col-12 col-md-7 text-center text-md-left my-auto order-2 order-md-2">
+                    <h1 class="text-title">Preparing for adventures</h1>
+                    <p>Take a look at our program to get some of the best services that we own, that can make your
+                        adventure life easier and more fun!.</p>
+                    <p>Whether you're a skilled or just having some good time, we have all of the kinds you need.</p>
                 </div>
             </div>
         </div>
-        <div class="fullpage-panel row">
-            <div class="col-12 col-md-4 offset-md-1 text-center my-md-auto mt-auto">
-                <h1 class="card-title text-title">REGISTER NOW</h1>
-                <p class="card-text">Feugiat persequeris has, ea pri putent periculis. Scaevola complectitur te nam,
-                    ferri
-                    scriptorem at sit, audire
-                    aperiam fabulas ut nec.</p>
+        <div class="fullpage-panel row-main row" id="slide-3">
+            <div class="row py-0">
+                <div class="col-12 col-md-7 text-center text-md-right my-auto order-2 order-md-1">
+                    <h1 class="text-title">Let's Go!</h1>
+                    <p>After all of those preparing... are you ready yet?</p>
+                    <p>Let's go to the world of unknown that you soon will discover</p>
+                </div>
+                <div class="col-12 col-md-5 my-auto order-1 order-md-2">
+                    <img src="./images/product/pexels-luis-quintero-3731256.jpg" alt="product image">
+                </div>
             </div>
-            <div class="col-12 col-md-6 my-md-auto mb-auto">
-                <form action="#">
+        </div>
+        <div class="fullpage-panel row-main row" id="slide-4">
+            <div class="col-12 col-md-5 text-center text-md-right my-md-auto mb-2">
+                <h1 class="text-title">Register Now</h1>
+                <p>We will get the kind of program that you will need ASAP.</p>
+            </div>
+            <div class="col-12 col-md-7 my-md-auto mt-2">
+                <form method="POST" action="#">
                     <div class="form-group">
                         <label for="email">Email</label>
                         <input class="form-control" type="email" name="email" id="email">
@@ -149,22 +99,58 @@
                         <input class="form-control" type="phone" name="phone" id="phone">
                     </div>
                     <div class="form-group">
-                        <input class="form-control" type="submit" name="submit" id="submit">
+                        <input class="form-control btn" type="submit" name="submit" id="submit">
                     </div>
                 </form>
             </div>
         </div>
     </div>
+    <!-- <footer>
+        <div class="container-fluid">
+            <div class="row text-center pt-5 pt-md-3">
+                <div class="col-12 col-md-6">
+                    <ul class="list-unstyled">
+                        <li>
+                            <span class="font-weight-bold">The Adventures</span>
+                        </li>
+                        <li>
+                            <a href="#slide-1">About</a>
+                        </li>
+                        <li>
+                            <a href="#slide-2">Program</a>
+                        </li>
+                        <li>
+                            <a href="#slide-3">Contact Us</a>
+                        </li>
+                    </ul>
+                </div>
+                <div class="col-12 col-md-6">
+                    <ul class="list-unstyled">
+                        <li>
+                            <span class="font-weight-bold">Social Media</span>
+                        </li>
+                        <li>
+                            <a href="">Instagram</a>
+                        </li>
+                        <li>
+                            <a href="">Email</a>
+                        </li>
+                        <li>
+                            <a href="">Facebook</a>
+                        </li>
+                    </ul>
+                </div>
+                <div class="col-12 col-md-12">
+                    Made by Khusyasy
+                </div>
+            </div>
+        </div>
+    </footer> -->
 
-    <!-- jQuery library -->
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
-
-    <!-- Popper JS -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
-
-    <!-- Latest compiled JavaScript -->
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
-    <script src="js/fullpage.js"></script>
+    <script src="./js/fullpage.js"></script>
 </body>
 
 </html>

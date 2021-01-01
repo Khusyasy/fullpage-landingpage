@@ -131,6 +131,7 @@
     });
     fullpage.addEventListener('wheel', _scrollY);
     _swipe(fullpage);
+
     //create paging li
     for (var i = 1; i <= pnls + 1; i++) {
         var li = document.createElement('li');
